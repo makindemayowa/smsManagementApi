@@ -1,4 +1,4 @@
-import { User, SentMessage, ReceivedMessage } from "../models";
+import { User } from "../models";
 
 const Users = {
   create(req, res) {
