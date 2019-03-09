@@ -1,32 +1,21 @@
-'use strict';
+"use strict";
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('Messages', {
+    return queryInterface.createTable("Messages", {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      receiverId: {
+      message: {
         allowNull: false,
-        onDelete: 'CASCADE',
-        type: Sequelize.INTEGER,
-        references: {
-          model: 'Users',
-          key: 'id',
-          as: 'receiverId',
-        },
+        type: Sequelize.STRING
       },
-      senderId: {
+      status: {
         allowNull: false,
-        onDelete: 'CASCADE',
-        type: Sequelize.INTEGER,
-        references: {
-          model: 'Users',
-          key: 'id',
-          as: 'senderId',
-        },
+        type: Sequelize.ENUM,
+        values: ["pending", "sent", "read"]
       },
       createdAt: {
         allowNull: false,
@@ -39,6 +28,6 @@ module.exports = {
     });
   },
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('Messages');
+    return queryInterface.dropTable("Messages");
   }
 };

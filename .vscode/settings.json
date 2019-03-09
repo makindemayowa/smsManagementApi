@@ -1,0 +1,16 @@
+{
+  "python.pythonPath": "/Users/andeladeveloper/envs/env1/bin/python",
+  "python.linting.flake8Enabled": true,
+  "files.insertFinalNewline": true,
+  "editor.formatOnSave": true,
+  "python.formatting.provider": "yapf",
+  "markdownlint.config": {
+    "default": true,
+    "MD003": { "style": "atx_closed" },
+    "MD007": { "indent": 4 },
+    "no-hard-tabs": false,
+    "MD013": {
+      "line_length": 100
+    }
+  }
+}
