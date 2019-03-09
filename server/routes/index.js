@@ -8,10 +8,14 @@ module.exports = app => {
     })
   );
 
-  // Not protected routes
+  // User routes
   app.post("/api/v1/users", Users.create);
-  app.get("/api/v1/users", Users.getall);
+  app.get("/api/v1/users", Users.getAll);
+  app.get("/api/v1/users/:id", Users.getOne);
+  app.put("/api/v1/users/:id", Users.update);
+  app.delete("/api/v1/users/:id", Users.delete);
 
+  // Message routes
   app.post("/api/v1/messages", Messages.create);
 
   //   app.post('/api/v1/users/login', Users.login);

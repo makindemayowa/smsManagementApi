@@ -8,7 +8,7 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.STRING,
         validate: {
           notEmpty: {
-            msg: "phone cannot be empty"
+            msg: "name cannot be empty"
           }
         }
       },
