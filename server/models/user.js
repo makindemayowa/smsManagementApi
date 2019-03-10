@@ -1,7 +1,7 @@
 "use strict";
 module.exports = (sequelize, DataTypes) => {
-  const User = sequelize.define(
-    "User",
+  const Contact = sequelize.define(
+    "Contact",
     {
       name: {
         allowNull: false,
@@ -25,16 +25,16 @@ module.exports = (sequelize, DataTypes) => {
     },
     {}
   );
-  User.associate = function(models) {
+  Contact.associate = function(models) {
     // associations can be defined here
-    User.hasMany(models.SentMessage, {
+    Contact.hasMany(models.SentMessage, {
       foreignKey: "senderId",
       as: "sentMessages"
     });
-    User.hasMany(models.ReceivedMessage, {
+    Contact.hasMany(models.ReceivedMessage, {
       foreignKey: "receiverId",
       as: "receivedMessages"
     });
   };
-  return User;
+  return Contact;
 };

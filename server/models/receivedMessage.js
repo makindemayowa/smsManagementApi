@@ -10,7 +10,7 @@ module.exports = (sequelize, DataTypes) => {
         }
       },
       references: {
-        model: "User",
+        model: "Contact",
         key: "id",
         as: "receiverId"
       }
@@ -32,7 +32,7 @@ module.exports = (sequelize, DataTypes) => {
   });
   ReceivedMessage.associate = function(models) {
     // associations can be defined here
-    ReceivedMessage.belongsTo(models.User, {
+    ReceivedMessage.belongsTo(models.Contact, {
       as: "receivedMessages",
       foreignKey: "receiverId",
       onDelete: "CASCADE"
