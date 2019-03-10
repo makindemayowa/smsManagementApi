@@ -1,5 +1,9 @@
 import Contacts from "../controllers/contact";
 import Messages from "../controllers/message";
+import dataValidators from "../helpers/validators";
+
+const Validator = require("express-joi-validation");
+const validator = Validator({});
 
 module.exports = app => {
   /**
@@ -46,7 +50,11 @@ module.exports = app => {
    *       200:
    *         description: Successfully created
    */
-  app.post("/api/v1/contacts", Contacts.create);
+  app.post(
+    "/api/v1/contacts",
+    validator.body(dataValidators.createContact),
+    Contacts.create
+  );
 
   /**
    * @swagger
@@ -115,7 +123,11 @@ module.exports = app => {
    *         schema:
    *           $ref: '#/definitions/contacts'
    */
-  app.put("/api/v1/contacts/:id", Contacts.update);
+  app.put(
+    "/api/v1/contacts/:id",
+    validator.body(dataValidators.updateContact),
+    Contacts.update
+  );
 
   /**
    * @swagger
@@ -158,7 +170,11 @@ module.exports = app => {
    *       201:
    *         description: Successfully created
    */
-  app.post("/api/v1/messages", Messages.create);
+  app.post(
+    "/api/v1/messages",
+    validator.body(dataValidators.createMessage),
+    Messages.create
+  );
 
   /**
    * @swagger
@@ -184,5 +200,9 @@ module.exports = app => {
    *       200:
    *         description: Successfully updated
    */
-  app.put("/api/v1/messages/:id", Messages.update);
+  app.put(
+    "/api/v1/messages/:id",
+    validator.body(dataValidators.updateMessage),
+    Messages.update
+  );
 };
