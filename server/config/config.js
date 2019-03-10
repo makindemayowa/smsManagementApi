@@ -1,14 +1,14 @@
 module.exports = {
   development: {
-    username: "andeladeveloper",
+    username: process.env.DB_USER,
     password: null,
-    database: "sms_manager",
+    database: process.env.DB_NAME,
     host: "127.0.0.1",
     dialect: "postgres"
   },
 
   test: {
-    use_env_variable: "dmsTest",
+    use_env_variable: "testDb",
     dialect: "postgres",
     logging: false
   },
